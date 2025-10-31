@@ -422,7 +422,7 @@ body::before {
 /* Modern Slider Indicators */
 .slider-indicators {
     position: absolute;
-    bottom: var(--spacing-64);
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
