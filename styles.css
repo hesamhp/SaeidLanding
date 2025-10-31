@@ -542,6 +542,7 @@ body::before {
     transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    text-decoration: none;
 }
 
 .contact-item::before {
@@ -576,7 +577,7 @@ body::before {
 }
 
 .contact-item:hover svg {
-    color: var(--accent-300);
+    color: white;
     filter: drop-shadow(0 0 15px rgba(255, 165, 0, 0.8));
     transform: scale(1.1);
 }
