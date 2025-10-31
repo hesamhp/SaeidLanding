@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'a';
+  src: url('/kalameh.ttf') format('ttf');
+}
+
+body {
+  font-family: 'a', sans-serif !important;
+}

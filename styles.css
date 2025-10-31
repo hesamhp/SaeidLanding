@@ -9,6 +9,15 @@ html {
     scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: 'a';
+  src: url('/kalameh.ttf') format('true type');
+}
+
+body {
+  font-family: 'a', sans-serif !important;
+}
+
 :root {
     /* Modern Black & Yellow Color System */
     --primary-500: #FFD700;
@@ -47,9 +56,9 @@ html {
     --neon-glow-dark: 0 0 20px rgba(51, 51, 51, 0.6), 0 0 40px rgba(51, 51, 51, 0.4), 0 0 60px rgba(51, 51, 51, 0.2);
     
     /* Typography */
-    --font-heading: 'Poppins', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --font-display: 'Space Grotesk', sans-serif;
+    --font-heading: 'kalameh';
+    --font-body: 'kalameh';
+    --font-display: 'kalameh';
     
     /* Spacing */
     --spacing-4: 4px;
@@ -249,7 +258,7 @@ body::before {
     position: relative;
 }
 
-.main-title::after {
+/* .main-title::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -260,7 +269,7 @@ body::before {
     background: var(--gradient-primary);
     border-radius: var(--radius-full);
     animation: pulse 2s ease-in-out infinite;
-}
+} */
 
 @keyframes pulse {
     0%, 100% { opacity: 0.6; width: 100px; }
@@ -279,6 +288,7 @@ body::before {
 }
 
 .branch-description {
+    font-family: 'kalameh';
     font-size: clamp(16px, 1.8vw, 20px);
     line-height: 1.6;
     margin-bottom: var(--spacing-40);
@@ -306,7 +316,8 @@ body::before {
     overflow: hidden;
     transform-style: preserve-3d;
     transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: var(--shadow-neon-yellow), var(--shadow-3d);
+    box-shadow: var(--shadow-neon-yellow), var(--shadow-3d);padding: 5px 40px;
+    margin: 20px;
 }
 
 .cta-button::before {
@@ -401,7 +412,7 @@ body::before {
 }
 
 .prev-btn {
-    left: var(--spacing-40);
+    left: 1px;
 }
 
 .next-btn {
@@ -429,6 +440,7 @@ body::before {
     transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    margin: 0 5px;
 }
 
 .indicator::before {
@@ -504,6 +516,7 @@ body::before {
 }
 
 .section-description {
+    font-family: 'kalameh';
     font-size: 18px;
     color: var(--neutral-300);
     margin-bottom: var(--spacing-64);
@@ -569,6 +582,7 @@ body::before {
 }
 
 .contact-item span {
+    font-family: 'kalameh';
     font-size: 16px;
     color: var(--neutral-100);
     font-weight: 500;
