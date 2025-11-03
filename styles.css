@@ -383,7 +383,7 @@ body::before {
     backdrop-filter: blur(20px) saturate(180%);
     box-shadow: var(--shadow-glass);
 }
-
+/* 
 .slider-btn::before {
     content: '';
     position: absolute;
@@ -402,7 +402,7 @@ body::before {
 
 .slider-btn:hover::before {
     opacity: 1;
-}
+} */
 
 .slider-btn:hover {
     background: rgba(255, 255, 255, 0.15);
@@ -746,4 +746,351 @@ body::before {
         color: white !important;
         box-shadow: none !important;
     }
+}
+
+/* Trainer Section Styles */
+.trainer-section {
+    padding: var(--spacing-96) 0;
+    background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-200) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.trainer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23FFD700" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></svg>');
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.trainer-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-64);
+    background: white;
+    border-radius: var(--radius-32);
+    padding: var(--spacing-64);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.trainer-image-container {
+    position: relative;
+    border-radius: var(--radius-24);
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    max-width: 400px;
+}
+
+.trainer-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.trainer-image-container:hover .trainer-image {
+    transform: scale(1.05);
+}
+
+.trainer-overlay {
+    position: absolute;
+    top: var(--spacing-32);
+    right: var(--spacing-32);
+    background: var(--gradient-primary);
+    padding: var(--spacing-16) var(--spacing-24);
+    border-radius: var(--radius-50);
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
+}
+
+.trainer-experience {
+    font-weight: 600;
+    color: var(--neutral-950);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.trainer-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-32);
+}
+
+.trainer-name {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    color: var(--neutral-950);
+    margin: 0;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.trainer-title {
+    font-size: var(--text-xl);
+    color: var(--accent-600);
+    margin: var(--spacing-8) 0 0 0;
+    font-weight: 600;
+}
+
+.trainer-qualifications {
+    background: var(--neutral-50);
+    padding: var(--spacing-32);
+    border-radius: var(--radius-20);
+    border-right: 4px solid var(--primary-500);
+}
+
+.qualifications-title {
+    color: var(--neutral-950);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin: 0 0 var(--spacing-16) 0;
+}
+
+.qualifications-list {
+    list-style: none;
+    display: grid;
+    gap: var(--spacing-12);
+}
+
+.qualifications-list li {
+    color: var(--neutral-700);
+    font-weight: 500;
+    padding: var(--spacing-8) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+}
+
+.specialty-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-16);
+    margin-top: var(--spacing-16);
+}
+
+.specialty-tag {
+    background: var(--gradient-primary);
+    color: var(--neutral-950);
+    padding: var(--spacing-8) var(--spacing-20);
+    border-radius: var(--radius-50);
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.specialty-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+}
+
+.specialties-title,
+.qualifications-title {
+    color: var(--neutral-950);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin: 0 0 var(--spacing-16) 0;
+}
+
+.trainer-description {
+    background: var(--neutral-50);
+    padding: var(--spacing-32);
+    border-radius: var(--radius-20);
+    border-left: 4px solid var(--accent-500);
+}
+
+.trainer-description p {
+    color: var(--neutral-700);
+    line-height: 1.8;
+    font-size: var(--text-base);
+    margin: 0;
+}
+
+.trainer-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    color: var(--neutral-950);
+    padding: var(--spacing-20) var(--spacing-48);
+    border-radius: var(--radius-50);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
+    align-self: flex-start;
+}
+
+.trainer-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(255, 215, 0, 0.4);
+}
+
+/* Achievements Section Styles */
+.achievements-section {
+    padding: var(--spacing-96) 0;
+    background: linear-gradient(135deg, var(--neutral-900) 0%, var(--neutral-800) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievements-section .section-title,
+.achievements-section .section-description {
+    color: white;
+}
+
+.achievements-section .section-title {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-40);
+    margin-top: var(--spacing-64);
+}
+
+.achievement-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: var(--radius-24);
+    padding: var(--spacing-32);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.achievement-item:hover::before {
+    left: 100%;
+}
+
+.achievement-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-500);
+    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+}
+
+.achievement-image-container {
+    position: relative;
+    margin-bottom: var(--spacing-24);
+    border-radius: var(--radius-16);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.achievement-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.achievement-item:hover .achievement-image {
+    transform: scale(1.05);
+}
+
+.achievement-badge {
+    position: absolute;
+    top: var(--spacing-16);
+    right: var(--spacing-16);
+    font-size: var(--text-2xl);
+    background: var(--gradient-primary);
+    color: var(--neutral-950);
+    padding: var(--spacing-12);
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+    border: 3px solid white;
+    z-index: 2;
+}
+
+.achievement-info h4 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--primary-400);
+    margin: 0 0 var(--spacing-8) 0;
+    line-height: 1.4;
+}
+
+.achievement-year {
+    font-size: var(--text-sm);
+    color: var(--accent-400);
+    font-weight: 600;
+    margin: 0 0 var(--spacing-16) 0;
+    background: rgba(255, 165, 0, 0.1);
+    padding: var(--spacing-4) var(--spacing-12);
+    border-radius: var(--radius-12);
+    display: inline-block;
+}
+
+.achievement-description {
+    color: var(--neutral-300);
+    line-height: 1.6;
+    font-size: var(--text-base);
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .trainer-card {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-32);
+        text-align: center;
+        padding: var(--spacing-32);
+    }
+    
+    .trainer-image-container {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-24);
+    }
+    
+    .specialty-tags {
+        justify-content: center;
+    }
+    
+    .trainer-cta-button {
+        align-self: center;
+    }
+}
+
+/* Container Utility */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-24);
 }

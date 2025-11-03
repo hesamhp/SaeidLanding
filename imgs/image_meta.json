@@ -1,0 +1,288 @@
+[
+  {
+    "query": "Gold medal or trophy for sports achievement",
+    "image_info": {
+      "url": "https://static.vecteezy.com/system/resources/previews/028/572/272/non_2x/realistic-golden-medal-on-red-ribbon-with-engraved-number-one-sports-competition-awards-for-first-place-championship-reward-for-achievements-and-victory-vector.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 41620,
+      "width": 980,
+      "height": 980,
+      "total_pixels": 960400,
+      "basic_score": 0.9203848399572039,
+      "file_name": "gold_medal_first_place_sports_achievement_red_ribbon.jpg"
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 100.0,
+      "clarity_score": 100.0,
+      "watermark_score": 100.0,
+      "overall_score": 100.0,
+      "explanation": "The image perfectly matches the search query and prompt, depicting a gold medal for first place (indicated by '1' and laurel wreath) with a red ribbon, symbolizing achievement and victory in sports. The clarity is excellent, with sharp details and a clean white background, and there are no watermarks.",
+      "file_name": "gold_medal_first_place_sports_achievement_red_ribbon.jpg",
+      "caption": "A realistic 3D rendering of a shiny gold medal featuring the number '1' surrounded by a classic laurel wreath design, suspended from a vibrant red V-shaped ribbon, set against a pristine white background. This image symbolizes first place, victory, and achievement in sports.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "A professional fitness trainer/coach photo for gym website",
+    "image_info": {
+      "url": "https://media.licdn.com/dms/image/v2/C4D03AQHy4owqw8YyyA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1595277923826?e=2147483647&v=beta&t=-rlo35Aws7-KixUXLLW22iw-y48NzXQvIx7NxCznjYY",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 12530,
+      "width": 200,
+      "height": 200,
+      "total_pixels": 40000,
+      "basic_score": 0.6722092926707484,
+      "file_name": "persian_fitness_trainer_posing_gym_website.jpg"
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 95.0,
+      "clarity_score": 75.0,
+      "watermark_score": 100.0,
+      "overall_score": 85.0,
+      "explanation": "The image is highly relevant to the search query, depicting a muscular individual who fits the description of a professional fitness trainer and coach, with features that could be interpreted as Persian. It is well-suited for a gym website. Clarity is good, though not exceptionally sharp, and there are no watermarks. The composition effectively showcases the trainer's physique.",
+      "file_name": "persian_fitness_trainer_posing_gym_website.jpg",
+      "caption": "A muscular male fitness trainer, possibly of Persian descent, with dark hair and a beard, flexing his bicep and showcasing his defined abdominal muscles. He is shirtless, wearing black shorts, and posing outdoors against a bright background with white architecture and a hint of the sea, suitable for a professional gym website or fitness profile.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Sports awards, trophies and medals for achievements section",
+    "image_info": {
+      "url": "https://builder.crownawards.com/StoreFront/ImageCompositionServlet?files=jsp/builderimages/BaseFiles/medals/CM09GMSTRG.png,jsp/builderimages/Ribbon/RICO25SA.png",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 111730,
+      "width": 800,
+      "height": 1221,
+      "total_pixels": 976800,
+      "basic_score": 0.9053219751371521,
+      "file_name": "gym_sports_achievement_medal_gold_red_white_blue.jpg"
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 95.0,
+      "clarity_score": 98.0,
+      "watermark_score": 100.0,
+      "overall_score": 95.0,
+      "explanation": "The image is highly relevant to the search query, depicting a medal specifically for 'GYM' achievements. The clarity is excellent, with sharp details and good lighting. There are no watermarks. The overall composition is professional, featuring the medal prominently against a clean white background, making it suitable for product listings or promotional materials.",
+      "file_name": "gym_sports_achievement_medal_gold_red_white_blue.jpg",
+      "caption": "A detailed, high-quality image of a gold-colored medal for 'GYM' achievements, featuring a prominent 'GYM' text in a bold, layered design. The medal is suspended from a patriotic red, white, and blue ribbon adorned with stars, and includes the number '5' on the ribbon, suggesting a rank or event number. The medal itself has a textured background with small dots and stars, indicating superior craftsmanship.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Sports awards, trophies and medals for achievements section",
+    "image_info": {
+      "url": "https://builder.crownawards.com/StoreFront/ImageCompositionServlet?files=jsp/builderimages/BaseFiles/medals/CM44MGRG.png,jsp/builderimages/Ribbon/RIRWB.png",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 135157,
+      "width": 800,
+      "height": 1236,
+      "total_pixels": 988800,
+      "basic_score": 0.9064917562830519,
+      "file_name": "gold-gymnastics-medal-sports-achievement-award.jpg"
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 95.0,
+      "clarity_score": 98.0,
+      "watermark_score": 100.0,
+      "overall_score": 97.0,
+      "explanation": "The image is highly relevant, depicting a gold medal specifically for gymnastics ('gym'), which directly aligns with 'medals', 'sports achievements', and 'gym' from the query and prompt. The image quality is excellent, with sharp details, clear lighting, and a professional composition against a plain background. There are no visible watermarks.",
+      "file_name": "gold-gymnastics-medal-sports-achievement-award.jpg",
+      "caption": "A detailed, high-resolution photograph of a shiny gold gymnastics medal, featuring an embossed silhouette of a gymnast in motion and the word 'GYM' prominently at the bottom. The medal is suspended from a classic red, white, and blue striped ribbon, symbolizing a sports achievement award.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Sports awards, trophies and medals for achievements section",
+    "image_info": {
+      "url": "https://builder.crownawards.com/StoreFront/ImageCompositionServlet?files=jsp/builderimages/BaseFiles/medals/CM105BKRG.png,jsp/builderimages/ColorInsert/MYFG01.png,jsp/builderimages/Ribbon/RIRWB.png",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 144505,
+      "width": 800,
+      "height": 1216,
+      "total_pixels": 972800,
+      "basic_score": 0.9088006506570625,
+      "file_name": "gymnastics_gold_medal_patriotic_ribbon_achievement_award.jpg"
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 100.0,
+      "clarity_score": 100.0,
+      "watermark_score": 100.0,
+      "overall_score": 98.0,
+      "explanation": "The image is a perfectly clear, high-resolution digital illustration of a gymnastics medal, directly aligning with the search query and prompt for sports awards, medals, and achievements. There are no watermarks, and the composition is professional and visually appealing.",
+      "file_name": "gymnastics_gold_medal_patriotic_ribbon_achievement_award.jpg",
+      "caption": "A high-quality digital illustration of a glittering gold gymnastics medal, suspended from a red, white, and blue striped ribbon. The medal features a black central design with the word 'GYMNASTICS' in white text at the top and bottom. The center showcases a vibrant purple silhouette of a female gymnast performing a graceful split, surrounded by numerous sparkling clear jewels, with two small silver stars completing the design.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Sports awards, trophies and medals for achievements section",
+    "image_info": {
+      "url": "https://builder.crownawards.com/StoreFront/ImageCompositionServlet?files=jsp/builderimages/BaseFiles/medals/CM08BKRG.png,jsp/builderimages/ColorInsert/MYGM19.png,jsp/builderimages/Ribbon/RIRWB.png",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 125710,
+      "width": 800,
+      "height": 1250,
+      "total_pixels": 1000000,
+      "basic_score": 0.9044627643824488,
+      "file_name": "gymnastics_medal_award_achievement_purple_stars.jpg"
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 98.0,
+      "clarity_score": 95.0,
+      "watermark_score": 100.0,
+      "overall_score": 95.0,
+      "explanation": "The image is exceptionally relevant to the search query, directly depicting a 'gym' 'medal' for 'sports achievements'. It exhibits excellent clarity, resolution, and is free of watermarks. The overall composition is professional and visually appealing.",
+      "file_name": "gymnastics_medal_award_achievement_purple_stars.jpg",
+      "caption": "A vibrant, close-up shot of a gold-colored gymnastics medal, featuring a striking black silhouette of a female gymnast performing a handstand against a dynamic purple background with pink and white stars. The medal is bordered by a ring of small gold stars and hangs from a classic red, white, and blue striped ribbon, signifying a sports achievement award.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Sports awards, trophies and medals for achievements section",
+    "image_info": {
+      "url": "https://builder.crownawards.com/StoreFront/ImageCompositionServlet?files=jsp/builderimages/BaseFiles/medals/CM44FGRG.png,jsp/builderimages/Ribbon/RICO25SA.png",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 145722,
+      "width": 800,
+      "height": 1239,
+      "total_pixels": 991200,
+      "basic_score": 0.9072572084580798,
+      "file_name": "gymnastics-medal-sports-achievement-award-pink-glitter-gym.jpg"
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 90.0,
+      "clarity_score": 100.0,
+      "watermark_score": 100.0,
+      "overall_score": 95.0,
+      "explanation": "The image is a high-quality, clear depiction of a gymnastics medal, directly aligning with 'gym awards,' 'medals,' and 'sports achievements' from the search query and prompt. It is professionally presented on a clean background with no watermarks, making it suitable for showcasing sports achievements. While it doesn't include a trophy, it strongly matches other key terms.",
+      "file_name": "gymnastics-medal-sports-achievement-award-pink-glitter-gym.jpg",
+      "caption": "A high-quality close-up image of a golden gymnastics medal, featuring a vibrant pink glitter silhouette of a gymnast in a handstand pose. The medal's background is embossed with repeating 'GYMNASTICS' text, and 'GYM' is prominently displayed at the bottom. The medal hangs from a V-shaped ribbon with an patriotic design of blue and white stars, red stripes, and a gray section with black stars, along with the partially visible number '5', signifying a ranking or event.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Collection of sports trophies and medals for display",
+    "image_info": {
+      "url": "https://m.media-amazon.com/images/I/91bQ3oF+pLS._AC_UF894,1000_QL80_.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 160394,
+      "width": 894,
+      "height": 862,
+      "total_pixels": 770628,
+      "basic_score": 0.9173178920352597,
+      "file_name": "sports_trophies_medals_display_showcase_awards_collection.jpg"
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 98.0,
+      "clarity_score": 95.0,
+      "watermark_score": 100.0,
+      "overall_score": 95.0,
+      "explanation": "The image is exceptionally relevant to the search query and prompt, clearly displaying a comprehensive collection of sports trophies and medals on a dedicated showcase. The clarity is excellent, allowing for easy identification of details on the awards. There are no watermarks, and the overall composition and lighting are professional and clean.",
+      "file_name": "sports_trophies_medals_display_showcase_awards_collection.jpg",
+      "caption": "A detailed shot showcasing a magnificent collection of sports awards, including various trophies like plaques and a prominent central cup, arranged neatly on a grey display shelf. Below the shelf, a large array of athletic medals, with colorful lanyards, hangs uniformly, representing achievements in sports such as track and field, cross country, and swimming.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Collection of sports trophies and medals for display",
+    "image_info": {
+      "url": "https://www.showfront.com.au/collectors/media/magefan_blog/featured2.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 480987,
+      "width": 1000,
+      "height": 750,
+      "total_pixels": 750000,
+      "basic_score": 0.9427633770461453,
+      "file_name": "sports_trophies_display_case_collection.jpg"
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 98.0,
+      "clarity_score": 80.0,
+      "watermark_score": 100.0,
+      "overall_score": 85.0,
+      "explanation": "The image is highly relevant to both the search query and prompt, perfectly showcasing a collection of sports trophies in a display case. Clarity is good, though some reflections are visible on the glass, and specific trophy details can be soft. There are no watermarks. Overall, it's a professional and suitable image for the given context.",
+      "file_name": "sports_trophies_display_case_collection.jpg",
+      "caption": "A comprehensive collection of gleaming silver and gold-colored sports trophies, some adorned with yellow and green ribbons, meticulously arranged within a multi-shelf glass display case. The impressive showcase also features a football and various plaques, suggesting a rich history of athletic achievement in an indoor setting.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Collection of sports trophies and medals for display",
+    "image_info": {
+      "url": "https://m.media-amazon.com/images/I/812v1yfYRWL._AC_UF894,1000_QL80_.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 132049,
+      "width": 842,
+      "height": 1000,
+      "total_pixels": 842000,
+      "basic_score": 0.9099276066817366,
+      "file_name": "sports_trophies_medals_display_shelf.jpg"
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 100.0,
+      "clarity_score": 95.0,
+      "watermark_score": 100.0,
+      "overall_score": 90.0,
+      "explanation": "The image is perfectly relevant to the search query and prompt, clearly showcasing a collection of sports trophies and medals on a display shelf. It exhibits excellent clarity, professional lighting, and a clean composition without any watermarks.",
+      "file_name": "sports_trophies_medals_display_shelf.jpg",
+      "caption": "A wall-mounted rustic wooden display shelf features a collection of sports awards. On the top shelf, there are two prominent golden trophies: a classic cup design and a modern star-shaped trophy. Flanking the trophies are two red display cases, each holding a gold medal. Beneath the shelf, numerous colorful medal ribbons, some explicitly showing '1st PLACE', '2nd PLACE', and '3rd PLACE', hang neatly from wooden pegs, creating an organized and attractive showcase for athletic achievements.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Collection of sports trophies and medals for display",
+    "image_info": {
+      "url": "https://m.media-amazon.com/images/I/71gleSXNvdL._AC_UF894,1000_QL80_.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 101599,
+      "width": 867,
+      "height": 1000,
+      "total_pixels": 867000,
+      "basic_score": 0.9117925678995477,
+      "file_name": "sports_trophy_medal_display_rack_with_shelf.jpg"
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 95.0,
+      "clarity_score": 90.0,
+      "watermark_score": 100.0,
+      "overall_score": 88.0,
+      "explanation": "The image is highly relevant, perfectly matching the search query and prompt by showcasing a collection of sports trophies and medals on a dedicated display unit. Clarity is excellent, with sharp details and good lighting. There are no watermarks. The overall composition is strong, effectively presenting the product, though the packaging box in the corner is a minor distraction from a purely aesthetic display shot.",
+      "file_name": "sports_trophy_medal_display_rack_with_shelf.jpg",
+      "caption": "A professional product photograph showcasing a black and natural wood trophy and medal display rack against a clean white background. The top shelf holds a collection of golden achievements, including a classical human figure trophy, a soccer ball trophy, a framed 'Certificate of Achievement,' and a golden star award. Below, a rack displaying the motivational phrase 'NEVER GIVE UP' in gold lettering proudly holds an assortment of vibrant, colorful medal ribbons. A white product box labeled 'Trophy Medal' is visible in the upper right background.",
+      "recommend": true,
+      "error": ""
+    }
+  }
+]
