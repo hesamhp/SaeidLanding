@@ -88,6 +88,17 @@ body {
     --shadow-3d: 0 25px 50px rgba(0, 0, 0, 0.25);
 }
 
+
+
+    /* size */
+    --text
+
+
+
+
+
+
+
 body {
     font-family: var(--font-body);
     background: var(--gradient-dark);
@@ -504,6 +515,7 @@ body::before {
 }
 
 .section-title {
+    text-align: center;
     font-family: var(--font-display);
     font-size: clamp(36px, 5vw, 56px);
     font-weight: 700;
@@ -519,7 +531,8 @@ body::before {
 .section-description {
     font-family: 'kalameh';
     font-size: 18px;
-    color: var(--neutral-300);
+    color: var(--accent-400);
+    text-align: center;
     margin-bottom: var(--spacing-64);
     opacity: 0.9;
 }
@@ -773,11 +786,12 @@ body::before {
 }
 
 .trainer-card {
+    font-family: var(--font-display);
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: var(--spacing-64);
     background: white;
-    border-radius: var(--radius-32);
+    border-radius:20px;
     padding: var(--spacing-64);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -788,7 +802,7 @@ body::before {
 
 .trainer-image-container {
     position: relative;
-    border-radius: var(--radius-24);
+    border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 3/4;
     max-width: 400px;
@@ -830,24 +844,27 @@ body::before {
 }
 
 .trainer-name {
-    font-size: var(--text-4xl);
+    font-family: var(--font-display);
+    font-size: clamp(18px, 3vw, 28px);
     font-weight: 700;
     color: var(--neutral-950);
     margin: 0;
-    background: var(--gradient-primary);
+    background: var(--gradient-accent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .trainer-title {
-    font-size: var(--text-xl);
-    color: var(--accent-600);
+    font-family: var(--font-display);
+    font-size: clamp(14px, 3vw, 22px);
+    color: #444;
     margin: var(--spacing-8) 0 0 0;
     font-weight: 600;
 }
 
 .trainer-qualifications {
+    font-family: var(--font-display);
     background: var(--neutral-50);
     padding: var(--spacing-32);
     border-radius: var(--radius-20);
@@ -892,6 +909,8 @@ body::before {
     font-weight: 600;
     box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
     transition: all 0.3s ease;
+    padding: 0 10px;
+
 }
 
 .specialty-tag:hover {
@@ -901,6 +920,7 @@ body::before {
 
 .specialties-title,
 .qualifications-title {
+    font-family: (--font-display);
     color: var(--neutral-950);
     font-size: var(--text-lg);
     font-weight: 600;
@@ -934,6 +954,8 @@ body::before {
     transition: all 0.3s ease;
     box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
     align-self: flex-start;
+    padding: 10px 50px;
+    border-radius: 10px;
 }
 
 .trainer-cta-button:hover {
@@ -1021,6 +1043,7 @@ body::before {
 }
 
 .achievement-badge {
+    display: none;
     position: absolute;
     top: var(--spacing-16);
     right: var(--spacing-16);
@@ -1091,6 +1114,7 @@ body::before {
 /* Container Utility */
 .container {
     max-width: 1200px;
+    font-family: var(--font-display);
     margin: 0 auto;
     padding: 0 var(--spacing-24);
 }
