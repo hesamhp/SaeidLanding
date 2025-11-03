@@ -11,7 +11,7 @@ html {
 
 @font-face {
   font-family: 'a';
-  src: url('/kalameh.ttf') format('true type');
+  src: url('/kalameh.ttf') format('ttf');
 }
 
 body {
