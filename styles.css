@@ -441,6 +441,7 @@ body::before {
     position: relative;
     overflow: hidden;
     margin: 0 5px;
+    bottom: 50px;
 }
 
 .indicator::before {
