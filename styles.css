@@ -10,12 +10,12 @@ html {
 }
 
 @font-face {
-  font-family: 'a';
+  font-family: 'kalameh';
   src: url('/kalameh.ttf') format('ttf');
 }
 
 body {
-  font-family: 'a', sans-serif !important;
+  font-family: 'kalameh', sans-serif !important;
 }
 
 :root {
