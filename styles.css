@@ -1118,3 +1118,8 @@ body::before {
     margin: 0 auto;
     padding: 0 var(--spacing-24);
 }
+
+button.tour{
+    padding-right:70px ;
+    padding-left:70px ;
+}
