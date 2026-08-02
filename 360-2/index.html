@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>تور مجازی 360 — اسکرول کنید</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --accent: #00e5ff;
+            --accent2: #ff6b35;
+            --dark: #0a0a0a;
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        html {
+            scroll-behavior: auto;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: var(--dark);
+            color: #fff;
+            overflow-x: hidden;
+            overscroll-behavior-y: none;
+        }
+
+        /* ==================== SCROLL CONTAINER ==================== */
+        .scroll-container {
+            height: 1200vh;
+            position: relative;
+        }
+
+        /* ==================== VIDEO ==================== */
+        .video-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1);
+            transition: transform 0.3s ease-out;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.35) 100%),
+                linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, transparent 18%, transparent 82%, rgba(0,0,0,0.45) 100%);
+        }
+
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            box-shadow: inset 0 0 120px rgba(0,0,0,0.5);
+        }
+
+        /* ==================== TOP BAR ==================== */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 64px;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 34px;
+            height: 34px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* ==================== PROGRESS BAR (Desktop — vertical) ==================== */
+        .progress-track {
+            position: fixed;
+            right: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 180px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            z-index: 100;
+        }
+
+        .progress-fill {
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(to bottom, var(--accent), var(--accent2));
+            border-radius: 3px;
+            transition: height 0.1s linear;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 11px;
+            height: 11px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent);
+        }
+
+        .section-marker {
+            position: absolute;
+            right: -8px;
+            width: 20px;
+            height: 1px;
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* ==================== MOBILE PROGRESS (horizontal top) ==================== */
+        .mobile-progress {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255,255,255,0.08);
+            z-index: 300;
+        }
+
+        .mobile-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, var(--accent), var(--accent2));
+            transition: width 0.1s linear;
+            border-radius: 0 3px 3px 0;
+            position: relative;
+        }
+
+        .mobile-progress-fill::after {
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: -2px;
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        /* ==================== SCROLL INDICATOR ==================== */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        .scroll-indicator.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .scroll-indicator span {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .scroll-mouse {
+            width: 24px;
+            height: 38px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .scroll-mouse::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 3px;
+            animation: scrollAnim 2s infinite;
+        }
+
+        .scroll-touch {
+            display: none;
+            font-size: 28px;
+            animation: swipeAnim 2s infinite ease-in-out;
+        }
+
+        @keyframes scrollAnim {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 22px; }
+        }
+
+        @keyframes swipeAnim {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-15px); opacity: 0.4; }
+        }
+
+        /* ==================== CONTENT SECTIONS ==================== */
+        .content-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .content-section.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .section-inner {
+            max-width: 680px;
+            padding: 0 32px;
+            text-align: center;
+        }
+
+        .section-tag {
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: var(--accent);
+            margin-bottom: 18px;
+            display: inline-block;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            padding: 6px 16px;
+            border-radius: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(24px, 5vw, 52px);
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-desc {
+            font-size: clamp(13px, 2.5vw, 16px);
+            line-height: 1.8;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+        }
+
+        /* ==================== TIMELINE DOTS ==================== */
+        .timeline-dots {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .timeline-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .timeline-dot.active {
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+            transform: scale(1.5);
+        }
+
+        .timeline-dot::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            white-space: nowrap;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 1px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .timeline-dot:hover::after,
+        .timeline-dot.active::after {
+            opacity: 1;
+        }
+
+        /* ==================== LOADING ==================== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: var(--dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s, visibility 0.8s;
+            padding: 20px;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-ring {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 24px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+        }
+
+        .loading-progress {
+            margin-top: 18px;
+            width: 180px;
+            max-width: 70vw;
+            height: 2px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .loading-progress-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+
+        @media (max-width: 1024px) {
+            .progress-track { right: 20px; height: 150px; }
+            .top-bar { padding: 0 20px; height: 56px; }
+            .logo { font-size: 16px; }
+            .logo-icon { width: 30px; height: 30px; font-size: 11px; }
+        }
+
+        @media (max-width: 768px) {
+            .scroll-container { height: 800vh; }
+
+            /* Hide desktop progress */
+            .progress-track { display: none; }
+
+            /* Show mobile progress */
+            .mobile-progress { display: block; }
+
+            /* Show touch indicator */
+            .scroll-mouse { display: none; }
+            .scroll-touch { display: block; }
+            .scroll-indicator { bottom: 100px; }
+
+            /* Top bar */
+            .top-bar { height: 50px; padding: 0 16px; }
+            .logo { font-size: 14px; gap: 8px; letter-spacing: 2px; }
+            .logo-icon { width: 26px; height: 26px; font-size: 9px; }
+
+            /* Content */
+            .section-inner { padding: 0 20px; }
+            .section-tag { font-size: 9px; letter-spacing: 3px; padding: 5px 12px; }
+            .section-desc { font-size: 13px; }
+            .content-section { padding-bottom: 60px; }
+
+            /* Timeline */
+            .timeline-dots { bottom: 24px; gap: 18px; padding-bottom: var(--safe-bottom); }
+            .timeline-dot { width: 7px; height: 7px; }
+            .timeline-dot::after { font-size: 8px; bottom: 18px; }
+
+            /* Lighter vignette */
+            .vignette { box-shadow: inset 0 0 80px rgba(0,0,0,0.4); }
+        }
+
+        @media (max-width: 480px) {
+            .scroll-container { height: 650vh; }
+            .top-bar { height: 44px; padding: 0 12px; }
+            .logo { font-size: 12px; gap: 6px; }
+            .logo-icon { width: 24px; height: 24px; font-size: 8px; border-width: 1.5px; }
+            .section-inner { padding: 0 16px; }
+            .section-tag { font-size: 8px; letter-spacing: 2px; padding: 4px 10px; margin-bottom: 12px; }
+            .section-title { font-size: clamp(20px, 6vw, 30px); margin-bottom: 10px; }
+            .section-desc { font-size: 12px; line-height: 1.7; }
+            .content-section { padding-bottom: 70px; }
+            .scroll-indicator { bottom: 85px; }
+            .scroll-indicator span { font-size: 10px; letter-spacing: 2px; }
+            .timeline-dots { bottom: 18px; gap: 14px; }
+            .timeline-dot { width: 6px; height: 6px; }
+            .timeline-dot.active { transform: scale(1.6); }
+            .timeline-dot::after { font-size: 7px; bottom: 16px; }
+        }
+
+        @media (max-width: 360px) {
+            .section-title { font-size: clamp(18px, 5.5vw, 26px); }
+            .section-desc { font-size: 11px; }
+            .timeline-dots { gap: 10px; }
+        }
+
+        @media (max-height: 500px) and (orientation: landscape) {
+            .scroll-container { height: 500vh; }
+            .section-title { font-size: clamp(16px, 3.5vw, 24px); }
+            .section-desc { display: none; }
+            .section-tag { margin-bottom: 8px; }
+            .scroll-indicator { bottom: 70px; }
+            .content-section { padding-bottom: 40px; }
+            .top-bar { height: 38px; }
+            .timeline-dots { bottom: 14px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-ring"></div>
+        <div class="loading-text">در حال بارگذاری تور مجازی</div>
+        <div class="loading-progress">
+            <div class="loading-progress-fill" id="loadingFill"></div>
+        </div>
+    </div>
+
+    <!-- Mobile Progress -->
+    <div class="mobile-progress">
+        <div class="mobile-progress-fill" id="mobileProgressFill"></div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="logo">
+            <div class="logo-icon">360</div>
+            <span>SAEIDCLUB TOUR</span>
+        </div>
+    </div>
+
+    <!-- Progress Bar (desktop) -->
+    <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+        <div class="section-marker" style="top: 0%"></div>
+        <div class="section-marker" style="top: 20%"></div>
+        <div class="section-marker" style="top: 40%"></div>
+        <div class="section-marker" style="top: 60%"></div>
+        <div class="section-marker" style="top: 80%"></div>
+        <div class="section-marker" style="top: 100%"></div>
+    </div>
+
+    <!-- Video -->
+    <div class="video-wrapper">
+        <video id="mainVideo" muted playsinline preload="auto" webkit-playsinline>
+            <source src="/360/1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Overlays -->
+    <div class="video-overlay"></div>
+    <div class="vignette"></div>
+
+    <!-- Content Sections -->
+    <div class="content-section" id="section0">
+        <div class="section-inner">
+            <!-- <div class="section-tag">تور مجازی ۳۶۰°</div>
+            <h1 class="section-title">فضای زندگی مدرن را کاوش کنید</h1>
+            <p class="section-desc">با اسکرول کردن، در فضاهای مختلف حرکت کنید. زمان ویدیو با اسکرول شما هماهنگ است.</p> -->
+        </div>
+    </div>
+
+    <div class="content-section" id="section1">
+        <div class="section-inner">
+            <!-- <div class="section-tag">ورودی</div>
+            <h1 class="section-title">ورودی با طراحی مینیمال</h1>
+            <p class="section-desc">فضای ورودی با نورپردازی طبیعی و متریال‌های ارگانیک طراحی شده است.</p> -->
+        </div>
+    </div>
+
+    <div class="content-section" id="section2">
+        <div class="section-inner">
+            <!-- <div class="section-tag">نشیمن</div>
+            <h1 class="section-title">فضای نشیمن باز</h1>
+            <p class="section-desc">سقف بلند و پنجره‌های سرتاسری، نور طبیعی را به تمام فضا می‌آورند.</p> -->
+        </div>
+    </div>
+
+    <div class="content-section" id="section3">
+        <div class="section-inner">
+            <!-- <div class="section-tag">آشپزخانه</div>
+            <h1 class="section-title">آشپزخانه مدرن</h1>
+            <p class="section-desc">تجهیزات حرفه‌ای و سطوح کوارتز در کنار کابینت‌های سفارشی.</p> -->
+        </div>
+    </div>
+
+    <div class="content-section" id="section4">
+        <div class="section-inner">
+            <!-- <div class="section-tag">تراس</div>
+            <h1 class="section-title">تراس رو به منظره</h1>
+            <p class="section-desc">فضای بیرونی خصوصی با چشم‌انداز ۱۸۰ درجه‌ای.</p> -->
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-mouse"></div>
+        <div class="scroll-touch">👆</div>
+        <span>اسکرول کنید</span>
+    </div>
+
+    <!-- Timeline Dots -->
+    <!-- <div class="timeline-dots" id="timelineDots">
+        <div class="timeline-dot active" data-label="شروع" data-section="0"></div>
+        <div class="timeline-dot" data-label="ورودی" data-section="1"></div>
+        <div class="timeline-dot" data-label="نشیمن" data-section="2"></div>
+        <div class="timeline-dot" data-label="آشپزخانه" data-section="3"></div>
+        <div class="timeline-dot" data-label="تراس" data-section="4"></div>
+    </div> -->
+
+    <!-- Scroll Container -->
+    <div class="scroll-container" id="scrollContainer"></div>
+
+    <script>
+        const NUM_SECTIONS = 5;
+        const video = document.getElementById('mainVideo');
+        const progressFill = document.getElementById('progressFill');
+        const mobileProgressFill = document.getElementById('mobileProgressFill');
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingFill = document.getElementById('loadingFill');
+        const sections = document.querySelectorAll('.content-section');
+        const timelineDots = document.querySelectorAll('.timeline-dot');
+        const isMobileQuery = () => window.innerWidth <= 768;
+
+        // ===== LOADING =====
+        let videoReady = false;
+        let loadProgress = 0;
+
+        const loadInterval = setInterval(() => {
+            loadProgress += Math.random() * 15;
+            if (loadProgress > 90 && !videoReady) loadProgress = 90;
+            if (loadProgress >= 100) loadProgress = 100;
+            loadingFill.style.width = loadProgress + '%';
+            if (loadProgress >= 100) {
+                clearInterval(loadInterval);
+                setTimeout(() => loadingScreen.classList.add('hidden'), 400);
+            }
+        }, 200);
+
+        video.addEventListener('canplaythrough', () => {
+            videoReady = true;
+            loadProgress = 100;
+            loadingFill.style.width = '100%';
+            clearInterval(loadInterval);
+            setTimeout(() => loadingScreen.classList.add('hidden'), 500);
+        });
+
+        setTimeout(() => {
+            loadProgress = 100;
+            loadingFill.style.width = '100%';
+            clearInterval(loadInterval);
+            setTimeout(() => loadingScreen.classList.add('hidden'), 400);
+        }, 5000);
+
+        // ===== SCROLL → VIDEO =====
+        let targetTime = 0;
+        let currentTime = 0;
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        function getScrollProgress() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            return Math.max(0, Math.min(1, scrollTop / docHeight));
+        }
+
+        function update() {
+            const progress = getScrollProgress();
+            const mobile = isMobileQuery();
+
+            // Video time
+            if (video.duration && !isNaN(video.duration)) {
+                targetTime = progress * video.duration;
+                currentTime = lerp(currentTime, targetTime, mobile ? 0.15 : 0.1);
+                if (Math.abs(video.currentTime - currentTime) > 0.01) {
+                    video.currentTime = currentTime;
+                }
+            }
+
+            // Progress
+            progressFill.style.height = (progress * 100) + '%';
+            mobileProgressFill.style.width = (progress * 100) + '%';
+
+            // Gentle zoom
+            const zoom = mobile ? 1 + progress * 0.06 : 1 + progress * 0.12;
+            video.style.transform = `scale(${zoom.toFixed(3)})`;
+
+            // Scroll indicator
+            scrollIndicator.classList.toggle('hidden', progress > 0.02);
+
+            // Sections
+            const sectionProgress = progress * NUM_SECTIONS;
+            sections.forEach((section, i) => {
+                const start = i - 0.3;
+                const end = i + 0.7;
+                if (sectionProgress >= start && sectionProgress <= end) {
+                    section.classList.add('active');
+                    const local = (sectionProgress - i) / 0.7;
+                    const inner = section.querySelector('.section-inner');
+                    inner.style.transform = `translateY(${local * (mobile ? -25 : -50)}px)`;
+                    inner.style.opacity = 1 - Math.abs(local) * 0.5;
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+
+            // Timeline
+            const active = Math.round(progress * (NUM_SECTIONS - 1));
+            timelineDots.forEach((dot, i) => dot.classList.toggle('active', i === active));
+
+            requestAnimationFrame(update);
+        }
+
+        requestAnimationFrame(update);
+
+        // ===== TIMELINE CLICKS =====
+        timelineDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const idx = parseInt(dot.dataset.section);
+                const docH = document.documentElement.scrollHeight - window.innerHeight;
+                window.scrollTo({ top: (idx / (NUM_SECTIONS - 1)) * docH, behavior: 'smooth' });
+            });
+        });
+
+        // ===== KEYBOARD =====
+        document.addEventListener('keydown', (e) => {
+            const step = window.innerHeight * 2;
+            if (e.key === 'ArrowDown' || e.key === ' ') {
+                e.preventDefault();
+                window.scrollBy({ top: step, behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                window.scrollBy({ top: -step, behavior: 'smooth' });
+            }
+        });
+
+        // ===== VIDEO FALLBACK =====
+        video.addEventListener('error', () => {
+            video.src = 'https://videos.pexels.com/video-files/7578022/7578022-hd_1920_1080_30fps.mp4';
+            video.load();
+        });
+
+        video.pause();
+        video.load();
+
+        // ===== iOS video fix =====
+        document.addEventListener('touchstart', () => {
+            if (video.paused) {
+                video.play().then(() => { video.pause(); video.currentTime = 0; }).catch(() => {});
+            }
+        }, { once: true, passive: true });
+    </script>
+</body>
+</html>
